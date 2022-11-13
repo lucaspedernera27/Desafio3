@@ -15,14 +15,14 @@ pipeline {
         }
         stage('Git Clone') {
             steps {
-                sh 'rm -rf desafio3-despliegue2/'
-                sh 'git clone https://github.com/Luxcrift/desafio3-despliegue2.git'
-                sh 'ls -lrt desafio3-despliegue2/'
+                sh 'rm -rf Desafio3/'
+                sh 'git clone https://github.com/lucaspedernera27/Desafio3.git'
+                sh 'ls -lrt Desafio3/'
             }
         }
          stage('Upload to S3') {
             steps {
-                sh 'aws s3 cp desafio3-despliegue2 s3://desafio3-csv-loader-bucket --recursive'
+                sh 'aws s3 cp Desafio3 s3://desafio3-csv-loader-bucket --recursive'
             }
         }
     }
